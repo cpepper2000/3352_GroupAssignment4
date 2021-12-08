@@ -1,28 +1,69 @@
 package controllers;
 
+import models.Page;
+import models.PageElements;
+import models.CommentString;
+
 public class Controller{
 
-    models.Model model;
-    views.View view;
+    models.CommentString commentString;
+    models.Page page;
+    models.PageElements pageElements;
 
-    public Controller(models.Model model, views.View view){
+    views.ViewPage viewPage;
+    views.ViewCommentString viewCommentString;
+    views.ViewPageElement viewPageElement;
 
-        this.model = model;
-        this.view = view;
-        this.view.setController(this);
+    public Controller(models.CommentString commentString, models.Page page, models.PageElements pageElements, views.ViewPage viewPage, views.ViewCommentString viewCommentString, views.ViewPageElement viewPageElement ){
 
-        view.show();
+        this.commentString = commentString;
+        this.page = page;
+        this.pageElements;
+
+        this.viewPageElement = viewPageElement;
+        this.viewPageElement.setPageElementController(this);
+
+        this.viewPage = viewPage;
+        this.viewPage.setPageController(this);
+
+        this.viewCommentString = viewCommentString;
+        this.viewCommentString.setCommentStringController(this);
+
     }
 
-    public void updateModel(String functionNameNumber){
+    public void newElement(PageElement elementType){
+        pageElements.attach(elementType);
+    }
 
-        //split the name from the number
-        String functionName = "";
-        String functionNumber = "";
+    public void editElement(){
 
-        model.setFunctionName(functionName);
-        model.setFunctionNumber(functionNumber);
+    }
 
-        view.show();
+    public void removeElement(){
+
+    }
+
+    public void newPage(){
+
+    }
+
+    public void editPage(){
+
+    }
+
+    public void removePage(){
+
+    }
+
+    public void newCommentString(){
+
+    }
+
+    public void editCommentString(){
+
+    }
+
+    public void removeCommentString(){
+
     }
 }
