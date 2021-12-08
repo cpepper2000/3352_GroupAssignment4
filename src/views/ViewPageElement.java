@@ -15,6 +15,7 @@ public class ViewPageElements extends models.Observer{
         this.setController(controller);
     }
 
+    //Inplements update through the observer
     public void update(){
 
         this.show();
@@ -22,7 +23,9 @@ public class ViewPageElements extends models.Observer{
 
     public void onUpdate(){
 
-        //logic that collects data from the user
+        //Logic that collects data from the user
+        //then pushes the controller to begin data manipulation on the model
+        //classes wihtin the system architechture
         this.controller.updateModel(newInfo);
     }
 
@@ -50,10 +53,12 @@ public class ViewPageElements extends models.Observer{
         this.model.attatch(this);
     }
 
+
     public controllers.Controller getController() {
         return controller;
     }
 
+    //Attachment of the controller class to the view class so that manipulations can be propgated
     public void setController(controllers.Controller controller) {
         this.controller = controller;
     }

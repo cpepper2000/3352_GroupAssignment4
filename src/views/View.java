@@ -13,6 +13,7 @@ public class View extends models.Observer{
         this.setController(controller);
     }
 
+    //Inplements update through the observer
     public void update(){
 
         this.show();

@@ -15,6 +15,7 @@ public class ViewPage extends models.Observer{
         this.setController(controller);
     }
 
+    //Inplements update through the observer
     public void update(){
 
         this.show();
@@ -22,7 +23,9 @@ public class ViewPage extends models.Observer{
 
     public void onUpdate(){
 
-        //logic that collects data from the user
+        //Logic that collects data from the user
+        //then pushes the controller to begin data manipulation on the model
+        //classes wihtin the system architechture
         this.controller.updateModel(newInfo);
     }
 
@@ -31,6 +34,10 @@ public class ViewPage extends models.Observer{
 
     }
 
+    /*In full implementtion, this would contain functionality for the display of full pages in the application, complete with 
+    the relevant attached page elements and comment strings that are geomertically mapped to different portions of the page.
+    Functionality would include dividion of the page for the puspose of object placement, visibilty and access to certain elements
+    and more*/
     public void show(){
         //display or refresh the view
     }
@@ -39,6 +46,10 @@ public class ViewPage extends models.Observer{
 
         return page;
     }
+
+    //The set model method in each view class is intended to allow for the selection of the object
+    //relevant to the class file. If there is already an objevt selected, it is dropped to prevent multiple update errors
+
 
     public void setModel(models.Page model) {
 
@@ -50,10 +61,12 @@ public class ViewPage extends models.Observer{
         this.model.attatch(this);
     }
 
+    //Called when the model needs to be updated based on user input to the view
     public controllers.Controller getController() {
         return controller;
     }
 
+    //Attachment of the controller class to the view class so that manipulations can be propgated
     public void setController(controllers.Controller controller) {
         this.controller = controller;
     }
