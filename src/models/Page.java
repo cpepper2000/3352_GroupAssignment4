@@ -24,6 +24,12 @@ public class Page{
         return page;
     }
 
+    //Functionality for removing page objects from the data structure of the application
+    //This function would likely include a call to the detach function as well prior to removal 
+    //(likely after letting subscribers know the removal of an object has occured)
+    public void removePage(int index){
+    }
+
     //If a page is deleted or otherwise hidden from users
     //The attached subject can be removed
     public void dettach(Page){
